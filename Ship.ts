@@ -15,10 +15,10 @@ export class Ship implements Transporter {
       return 0;
     } else {
       let totalGrossWeight = 0;
-      for (let i = 1; i < this.containers.length; i++) {
-        totalGrossWeight = this.containers[i].getGrossWeight();
-        console.log(totalGrossWeight);
+      for (let i = 0; i < this.containers.length; i++) {
+        totalGrossWeight += this.containers[i].getGrossWeight();
       }
+      console.log("totalGrossWeight is", totalGrossWeight);
       return totalGrossWeight;
     }
   }

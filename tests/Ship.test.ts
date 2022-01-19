@@ -1,14 +1,14 @@
-import { HeavyContainer } from "../HeavyContainer";
 import { LightContainer } from "../LightContainer";
+import { HeavyContainer } from "../HeavyContainer";
 import { Ship } from "../Ship";
 describe("Ship", () => {
   test("Here it returns the", () => {
     const newShip = new Ship(500);
-    const lightContainer = new LightContainer("Detroit", 800);
-    const heavyContainer = new HeavyContainer(100, "Detroit");
+    const lightContainer = new LightContainer("Detroit");
+    const heavyContainer = new HeavyContainer(0, "Detroit");
     newShip.addContainer(lightContainer);
     newShip.addContainer(heavyContainer);
-    expect(newShip.getTotalWeight()).toBe(100);
+    expect(newShip.getTotalWeight()).toBe(0);
   });
   test("Here it returns the", () => {
     const newShip = new Ship(500);
@@ -27,7 +27,7 @@ describe("Ship", () => {
     expect(newShip.isOverweight()).toBe(true);
   });
   test("Here it returns the", () => {
-    const newShip = new Ship(1000);
+    const newShip = new Ship(10000);
     const lightContainer = new LightContainer("Detroit", 1100);
     newShip.addContainer(lightContainer);
     const heavyContainer = new HeavyContainer(200, "Detroit", 700);
@@ -36,9 +36,9 @@ describe("Ship", () => {
   });
   test("Here it returns the", () => {
     const newShip = new Ship(1300);
-    const heavyContainer = new HeavyContainer(600, "Detroit", 700);
-    const lightContainer = new LightContainer("Detroit", 1100);
+    const lightContainer = new LightContainer("Detroit", 200);
     newShip.addContainer(lightContainer);
+    const heavyContainer = new HeavyContainer(600, "Detroit", 500);
     newShip.addContainer(heavyContainer);
     expect(newShip.isOverweight()).toBe(false);
   });
