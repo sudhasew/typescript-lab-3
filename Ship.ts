@@ -8,13 +8,18 @@ export class Ship implements Transporter {
     this.maxWeight = maxWeight;
   }
   addContainer(container: ShippingContainer): void {
-    this.containers, container;
+    this.containers.push(container);
   }
   getTotalWeight() {
     if (this.containers === []) {
       return 0;
     } else {
-      return this.containers + this.getGrossWeight();
+      let totalGrossWeight = 0;
+      for (let i = 1; i < this.containers.length; i++) {
+        totalGrossWeight = this.containers[i].getGrossWeight();
+        console.log(totalGrossWeight);
+      }
+      return totalGrossWeight;
     }
   }
   isOverweight() {
@@ -26,3 +31,6 @@ export class Ship implements Transporter {
     }
   }
 }
+
+// const newShip = new Ship(400);
+// console.log(newShip.maxWeight);
