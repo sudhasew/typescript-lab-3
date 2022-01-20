@@ -3,7 +3,8 @@ import { Transporter } from "./Transporter";
 
 export class Truck implements Transporter {
   maxWeight: number;
-  container: ShippingContainer = null;
+  container: ShippingContainer | null = null;
+
   constructor(maxWeight: number) {
     this.maxWeight = maxWeight;
   }
